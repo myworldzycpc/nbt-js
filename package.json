@@ -1,0 +1,21 @@
+{
+  "name": "nbt-js",
+  "version": "1.0.0",
+  "description": "JavaScript library for parsing and manipulating Minecraft NBT data",
+  "main": "src/nbt.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
+  "keywords": [
+    "minecraft",
+    "nbt",
+    "parser",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "chai": "^4.3.7"
+  }
+}
