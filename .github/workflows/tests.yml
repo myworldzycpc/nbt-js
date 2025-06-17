@@ -16,5 +16,9 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
+    - run: |
+        if [ ! -f package-lock.json ]; then
+          npm install
+        fi
     - run: npm ci
     - run: npm test
