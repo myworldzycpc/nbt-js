@@ -1,6 +1,6 @@
 gettype = Object.prototype.toString;
 
-function changeToFloat(val) {
+export function changeToFloat(val) {
     if ((val / 1).toString().includes(".")) {
         return (val / 1);
     } else {
@@ -8,7 +8,7 @@ function changeToFloat(val) {
     };
 };
 
-function highlightCode(text, type) {
+export function highlightCode(text, type) {
     if (type == "key") {
         return `<span style="color:aqua">${text}</span>`
     } else if (type == "str") {
@@ -266,7 +266,7 @@ class NbtNull {
     };
 }
 
-function arrangementNbt(str) {
+export function arrangementNbt(str) {
     str = str.replace(/(: *)([0-9\.]+)([bfdis])/g, '$1new NbtNumber($2,"$3")');
     str = str.replace(/(, *)([0-9\.]+)([bfdis])( *[,\]])/g, '$1new NbtNumber($2,"$3")$4');
     str = str.replace(/(\[ *)([0-9\.]+)([bfdis])/g, '$1new NbtNumber($2,"$3")');
@@ -280,12 +280,12 @@ function arrangementNbt(str) {
  * @param {*} str 
  * @returns 
  */
-function decodeNbtStr(str) {
+export function decodeNbtStr(str) {
     jsObj = eval("obj=" + arrangementNbt(str));
     return changeObj(jsObj);
 }
 
-function changeObj(jsObj) {
+export function changeObj(jsObj) {
     if (gettype.call(jsObj) == "[object String]") {
         return new NbtString(jsObj);
     } else if (gettype.call(jsObj) == "[object Boolean]") {
@@ -311,7 +311,7 @@ function changeObj(jsObj) {
     }
 }
 
-function parsePath(path) {
+export function parsePath(path) {
     const tokens = [];
     let current = '';
     let inQuote = false;
@@ -400,7 +400,7 @@ function parsePath(path) {
     return tokens;
 }
 
-function parseNbtString(str) {
+export function parseNbtString(str) {
     let index = 0;
     const length = str.length;
 
