@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const { parseNbtString, NbtObject, NbtList } = require('../src/nbt');
+const { parseNbtString, NbtObject, NbtList } = require('../src/snbt');
 
 describe('NBT Parser', () => {
   it('should parse simple compound', () => {
