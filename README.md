@@ -1,8 +1,8 @@
-# NBT-JS
+# SNBT-JS
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://img.shields.io/npm/v/nbt-js.svg)](https://www.npmjs.com/package/nbt-js)
-[![Build Status](https://github.com/yourusername/nbt-js/actions/workflows/tests.yml/badge.svg)](https://github.com/yourusername/nbt-js/actions)
+[![npm version](https://img.shields.io/npm/v/snbt-js.svg)](https://www.npmjs.com/package/snbt-js)
+[![Build Status](https://github.com/myworldzycpc/snbt-js/actions/workflows/tests.yml/badge.svg)](https://github.com/myworldzycpc/snbt-js/actions)
 
 A robust JavaScript library for parsing, manipulating, and serializing Minecraft's NBT (Named Binary Tag) format. 
 Supports SNBT (Stringified NBT) with zero dependencies.
