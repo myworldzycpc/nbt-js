@@ -1,18 +1,19 @@
 {
-  "name": "nbt-js",
+  "name": "snbt-js",
   "version": "1.0.0",
-  "description": "JavaScript library for parsing and manipulating Minecraft NBT data",
-  "main": "src/nbt.js",
+  "description": "JavaScript library for parsing and manipulating Minecraft SNBT data",
+  "main": "src/snbt.js",
   "scripts": {
     "test": "mocha test/*.js"
   },
   "keywords": [
     "minecraft",
     "nbt",
+    "snbt",
     "parser",
     "javascript"
   ],
-  "author": "Your Name",
+  "author": "myworldzycpc",
   "license": "MIT",
   "devDependencies": {
     "mocha": "^10.0.0",
