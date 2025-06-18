@@ -1,6 +1,6 @@
 gettype = Object.prototype.toString;
 
-function changeToFloat(val) {
+export function changeToFloat(val) {
     if ((val / 1).toString().includes(".")) {
         return (val / 1);
     } else {
@@ -8,7 +8,7 @@ function changeToFloat(val) {
     };
 };
 
-function highlightCode(text, type) {
+export function highlightCode(text, type) {
     if (type == "key") {
         return `<span style="color:aqua">${text}</span>`
     } else if (type == "str") {
@@ -23,7 +23,7 @@ function highlightCode(text, type) {
 
 }
 
-class NbtObject {
+export class NbtObject {
     constructor(childsal) {
         this.childs = {};
         this.addChild = function (key, value) {
@@ -74,7 +74,7 @@ class NbtObject {
     };
 };
 
-class NbtList {
+export class NbtList {
     constructor(childsal) {
         this.childs = [];
         this.addChild = function (value) {
@@ -125,7 +125,7 @@ class NbtList {
     };
 };
 
-class NbtIntArray {
+export class NbtIntArray {
     constructor(childsal) {
         this.childs = [];
         this.addChild = function (value) {
@@ -180,7 +180,7 @@ class NbtIntArray {
     };
 };
 
-class NbtNumber {
+export class NbtNumber {
     constructor(value, unit = "") {
         if (unit == "b") {
             if (Math.round(value) > 127) {
@@ -219,7 +219,7 @@ class NbtNumber {
     };
 };
 
-class NbtString {
+export class NbtString {
     constructor(value) {
         this.value = value;
         this.text = function (ispretty) {
@@ -240,7 +240,7 @@ class NbtString {
     };
 };
 
-class NbtBool {
+export class NbtBool {
     constructor(value) {
         this.value = value ? "true" : "false";
         this.text = function (ispretty) {
@@ -253,7 +253,7 @@ class NbtBool {
     };
 };
 
-class NbtNull {
+export class NbtNull {
     constructor() {
         this.value = null;
     }
@@ -266,7 +266,7 @@ class NbtNull {
     };
 }
 
-function arrangementNbt(str) {
+export function arrangementNbt(str) {
     str = str.replace(/(: *)([0-9\.]+)([bfdis])/g, '$1new NbtNumber($2,"$3")');
     str = str.replace(/(, *)([0-9\.]+)([bfdis])( *[,\]])/g, '$1new NbtNumber($2,"$3")$4');
     str = str.replace(/(\[ *)([0-9\.]+)([bfdis])/g, '$1new NbtNumber($2,"$3")');
@@ -280,12 +280,12 @@ function arrangementNbt(str) {
  * @param {*} str 
  * @returns 
  */
-function decodeNbtStr(str) {
+export function decodeNbtStr(str) {
     jsObj = eval("obj=" + arrangementNbt(str));
     return changeObj(jsObj);
 }
 
-function changeObj(jsObj) {
+export function changeObj(jsObj) {
     if (gettype.call(jsObj) == "[object String]") {
         return new NbtString(jsObj);
     } else if (gettype.call(jsObj) == "[object Boolean]") {
@@ -311,7 +311,7 @@ function changeObj(jsObj) {
     }
 }
 
-function parsePath(path) {
+export function parsePath(path) {
     const tokens = [];
     let current = '';
     let inQuote = false;
@@ -400,7 +400,7 @@ function parsePath(path) {
     return tokens;
 }
 
-function parseNbtString(str) {
+export function parseNbtString(str) {
     let index = 0;
     const length = str.length;
 
@@ -769,3 +769,4 @@ function parseNbtString(str) {
         throw new Error(`${e.message} at position ${index}. Context: ...${context}...`);
     }
 }
+
