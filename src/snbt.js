@@ -1,4 +1,4 @@
-gettype = Object.prototype.toString;
+const gettype = Object.prototype.toString;
 
 export function changeToFloat(val) {
     if ((val / 1).toString().includes(".")) {

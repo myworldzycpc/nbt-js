@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "JavaScript library for parsing and manipulating Minecraft SNBT data",
   "main": "src/snbt.js",
+  "type": "module",
   "scripts": {
     "test": "mocha test/*.js"
   },

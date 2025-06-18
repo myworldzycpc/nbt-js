@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { parseNbtString, NbtObject, NbtList } from '../src/snbt';
+import { parseNbtString, NbtObject, NbtList } from '../src/snbt.js';
 
 describe('NBT Parser', () => {
   it('should parse simple compound', () => {
