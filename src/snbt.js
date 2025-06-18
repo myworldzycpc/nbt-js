@@ -55,7 +55,7 @@ export class NbtObject {
                 if (index.length == 1) {
                     this.childs[index[0]] = value;
                 } else if (index.length > 1) {
-                    this.get(index.slice(1)).set(index.slice(-1), value);
+                    this.get(index.slice(0, -1)).set(index.slice(-1), value);
                 };
             };
         };
@@ -106,7 +106,7 @@ export class NbtList {
                 if (index.length == 1) {
                     this.childs[index[0]] = value;
                 } else if (index.length > 1) {
-                    this.get(index.slice(1)).set(index.slice(-1), value);
+                    this.get(index.slice(0, -1)).set(index.slice(-1), value);
                 };
             };
         };
@@ -200,7 +200,7 @@ export class NbtNumber {
             } else {
                 this.value = Math.round(value);
             }
-        }else if (unit == "l") {
+        } else if (unit == "l") {
             if (Math.round(value) > 9223372036854775807n) {
                 this.value = 9223372036854775807n;
             } else if (Math.round(value) < -9223372036854775808n) {
@@ -321,6 +321,10 @@ export function changeObj(jsObj) {
 }
 
 export function parsePath(path) {
+    if (typeof path === 'number') {
+        return [path];
+    }
+
     const tokens = [];
     let current = '';
     let inQuote = false;
