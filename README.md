@@ -28,7 +28,7 @@ npm install nbt-js
 
 ### Parsing SNBT
 ```javascript
-const { parseNbtString } = require('nbt-js');
+const { parseNbtString } = await import('snbt-js');
 
 const nbtData = parseNbtString(`
 {
@@ -48,7 +48,7 @@ console.log(nbtData.get('player.name').value); // "Steve"
 
 ### Creating NBT Programmatically
 ```javascript
-const { NbtObject, NbtList, NbtString, NbtNumber } = require('nbt-js');
+const { NbtObject, NbtList, NbtString, NbtNumber } = await import('snbt-js');
 
 const player = new NbtObject({
   name: new NbtString('Alex'),
