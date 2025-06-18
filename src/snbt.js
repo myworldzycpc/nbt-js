@@ -55,7 +55,7 @@ export class NbtObject {
                 if (index.length == 1) {
                     this.childs[index[0]] = value;
                 } else if (index.length > 1) {
-                    this.get(index.slice(0, -1)).set(index.slice(-1), value);
+                    this.get(index.slice(1)).set(index.slice(-1), value);
                 };
             };
         };
@@ -106,7 +106,7 @@ export class NbtList {
                 if (index.length == 1) {
                     this.childs[index[0]] = value;
                 } else if (index.length > 1) {
-                    this.get(index.slice(0, -1)).set(index.slice(-1), value);
+                    this.get(index.slice(1)).set(index.slice(-1), value);
                 };
             };
         };
