@@ -182,6 +182,7 @@ export class NbtIntArray {
 
 export class NbtNumber {
     constructor(value, unit = "") {
+        unit = unit.toLowerCase();
         if (unit == "b") {
             if (Math.round(value) > 127) {
                 this.value = 127;
@@ -199,6 +200,14 @@ export class NbtNumber {
             } else {
                 this.value = Math.round(value);
             }
+        }else if (unit == "l") {
+            if (Math.round(value) > 9223372036854775807n) {
+                this.value = 9223372036854775807n;
+            } else if (Math.round(value) < -9223372036854775808n) {
+                this.value = -9223372036854775808n;
+            } else {
+                this.value = Math.round(value);
+            }
         } else if (unit == "d") {
             this.value = changeToFloat(value);
         } else if (unit == "f") {
@@ -211,7 +220,7 @@ export class NbtNumber {
         this.unit = unit;
         this.text = function (ispretty) {
             if (ispretty) {
-                return `${highlightCode(this.value, "num")}${unit ? highlightCode(this.unit, "unit") : ""}`
+                return `${highlightCode(this.value.toString(), "num")}${unit ? highlightCode(this.unit, "unit") : ""}`
             } else {
                 return `${this.value}${unit ? this.unit : ""}`
             };
@@ -641,7 +650,7 @@ export function parseNbtString(str) {
         let unit = "";
 
         // 检查单位后缀
-        if (index < length && /[bfdis]/.test(str[index])) {
+        if (index < length && /[bfdisl]/i.test(str[index])) {
             unit = str[index++];
         }
 
